@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "es2016",
+      "module": "commonjs",
+      "outDir": "./dist/js",
+      "baseUrl": ".",
+      "paths": {
+        "*": ["node_modules/*"]      
+      },
+  
+      "noImplicitAny": true,
+      "strictBindCallApply": true,    
+  
+      "removeComments": false,   
+      //"sourceMap": true, // true to support debugging in the VS Code, etc. Separate *.js.map file created.
+      "inlineSources": true, // true to support debugging in the VS Code, etc. Source map are part of the *.js files.
+      "inlineSourceMap": true // source map is part of the result *.js file as comment.
+      // "strictNullChecks": true,    
+  
+    },
+    "include": [
+      "src/**/*"
+    ]
+  }
+  

@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
+const index_1 = require("./routes/index");
+const app = express();
+index_1.useRoutesForApp(app);
+app.listen(3000, () => {
+    console.log('Server is running;');
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxtQ0FBb0M7QUFDcEMsMENBQWlEO0FBR2pELE1BQU0sR0FBRyxHQUF3QixPQUFPLEVBQUUsQ0FBQztBQUUzQyx1QkFBZSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0FBRXJCLEdBQUcsQ0FBQyxNQUFNLENBQUMsSUFBSSxFQUFFLEdBQUcsRUFBRTtJQUNsQixPQUFPLENBQUMsR0FBRyxDQUFDLG9CQUFvQixDQUFDLENBQUE7QUFDckMsQ0FBQyxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgZXhwcmVzcyA9IHJlcXVpcmUoJ2V4cHJlc3MnKTtcbmltcG9ydCB7IHVzZVJvdXRlc0ZvckFwcCB9IGZyb20gJy4vcm91dGVzL2luZGV4JzsgXG5cblxuY29uc3QgYXBwOiBleHByZXNzLkFwcGxpY2F0aW9uID0gZXhwcmVzcygpO1xuXG51c2VSb3V0ZXNGb3JBcHAoYXBwKTtcblxuYXBwLmxpc3RlbigzMDAwLCAoKSA9PiB7XG4gICAgY29uc29sZS5sb2coJ1NlcnZlciBpcyBydW5uaW5nOycpXG59KTsiXX0=
