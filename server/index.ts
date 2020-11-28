@@ -3,7 +3,7 @@ dotenv.config();
 
 import * as express from 'express';
 import { Application } from 'express';
-import { Server } from './src/index';
+import { Server } from './src/Server';
 
 const app: Application = express();
 const server: Server = new Server(app);
