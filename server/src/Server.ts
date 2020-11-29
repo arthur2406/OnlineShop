@@ -2,7 +2,7 @@ import { Application } from "express";
 import { ArgumentUndefinedOrNullError } from "./errors/ArgumentUndefinedOrNullError";
 import * as express from 'express';
 import { Routes } from "./Routes";
-import { PgDatabase } from "./PgDatabase";
+import { PgDatabase } from "./database/PgDatabase";
 
 export class Server {
 
@@ -16,7 +16,7 @@ export class Server {
     setupApp(app: Application) {
         app.use(express.urlencoded({ extended: true }));
         app.use(express.json());
-        app.use(uncaughtErrorHandler);
+        //app.use(uncaughtErrorHandler);
 
     }
 
