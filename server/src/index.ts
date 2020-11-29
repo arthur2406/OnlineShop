@@ -1,9 +1,10 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
+const pathToEnvFile = __dirname + '/../../.env';
+dotenv.config({ path: pathToEnvFile });
 
 import * as express from 'express';
 import { Application } from 'express';
-import { Server } from './src/Server';
+import { Server } from './Server';
 
 const app: Application = express();
 const server: Server = new Server(app);
