@@ -1,47 +1,54 @@
 import { Application } from "express";
-import { UserControllers } from "./controllers/UserControllers";
+import { AdminControllers } from "./controllers/AdminControllers";
+import { GeneralControllers } from "./controllers/GeneralControllers";
+import { ManagerControllers } from "./controllers/ManagerControllers";
+import { ClientControllers } from "./controllers/ClientControllers";
 import { Queriable } from "./interfaces/Querieable";
-import { PgDatabase } from "./PgDatabase";
+import { AdminRepository } from "./repositories/AdminRepository";
+import { BaseRepository } from "./repositories/BaseRepository";
+import { ManagerRepository } from "./repositories/ManagerRepository";
+import { ClientRepository } from "./repositories/ClientRepository";
 
 export class Routes {
 
     constructor(app: Application, db: Queriable) {
 
-
-        const userCtrls = new UserControllers(new UserRepository(db));
+        const generalCtrls = new GeneralControllers(new BaseRepository(db));
+        const clientCtrls = new ClientControllers(new ClientRepository(db));
         const managerCtrls = new ManagerControllers(new ManagerRepository(db));
         const adminCtrls = new AdminControllers(new AdminRepository(db)); 
 
         // Here are all the routes. 
 
+        // General routes
+        app.route('/api/general/getItems').get(generalCtrls.getItems);
+        
         // Customer routes.
-        app.route('/api/customer/getItems').get(userCtrls.getItems);
+        app.route('/api/client/getOrders').get(clientCtrls.getOrders);
 
-        app.route('/api/customer/getOrders').get(userCtrls.getOrders);
+        app.route('/api/client/getBills').get(clientCtrls.getBills);
+        
+        app.route('/api/client/addToCart/:itemId').post(clientCtrls.addToCart);
 
-        app.route('/api/customer/getBills').get(userCtrls.getBills);
+        app.route('/api/client/createOrder').post(clientCtrls.createOrder);
         
-        app.route('/api/customer/addToCart/:itemId').post(userCtrls.addToCart);
-
-        app.route('/api/customer/createOrder').post(userCtrls.createOrder);
+        app.route('/api/client/pay/:bill_id').post(clientCtrls.payBill);
         
-        app.route('/api/customer/pay/:bill_id').post(userCtrls.payBill);
-        
-        app.route('/api/customer/deleteFromCard/:itemId').delete(userCtrls.deleteFromCart);
+        app.route('/api/client/deleteFromCard/:itemId').delete(clientCtrls.deleteFromCart);
 
 
         // Manager routes.
-        app.route('/api/manager/getAssignedOrders').get(managerCtrls.getAssignedOrders);
+        // app.route('/api/manager/getAssignedOrders').get(managerCtrls.getAssignedOrders);
 
-        app.route('/api/manager/discardOrder/:orderId').post(managerCtrls.discardOrder);
+        // app.route('/api/manager/discardOrder/:orderId').post(managerCtrls.discardOrder);
 
-        app.route('/api/manager/createBill/:orderId').post(managerCtrls.createBill);
+        // app.route('/api/manager/createBill/:orderId').post(managerCtrls.createBill);
 
 
-        // Admin routes.
-        app.route('/api/admin/addItem').post(adminCtrls.addItem);
+        // // Admin routes.
+        app.route('/api/admin/createItems').post(adminCtrls.createItems);
 
-        app.route('/api/admin/updateItem').put(adminCtrls.updateItem);
+        app.route('/api/admin/updateItem/:itemId').put(adminCtrls.updateItem);
 
     }
 }
