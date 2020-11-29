@@ -1,10 +1,10 @@
 INSERT INTO Item (Name, Image, Description, Price)
 VALUES
     ('tv', null,  'really good', 15.5),
-    ('iphone', 'path/to/image' 'nice one', 16.7),
-    ('chair', 'path/to/image' 'nice one', 66),
-    ('desk', 'path/to/image' 'nice one', 120),
-    ('big desk', 'path/to/image' 'nice one', 150);
+    ('iphone', 'path/to/image', 'nice one', 16.7),
+    ('chair', 'path/to/image', 'nice one', 66),
+    ('desk', 'path/to/image', 'nice one', 120),
+    ('big desk', 'path/to/image', 'nice one', 150);
 
 INSERT INTO Manager (Name, LastName, Phone)
 VALUES
@@ -25,6 +25,10 @@ VALUES
 
 INSERT INTO OrderLine (Quantity, FinalOrderId, ItemId) 
 VALUES
-    (5, 0, 3),
-    (1, 0, 2),
-    (6, 1, 3);
+    (5, 1, 34),
+    (1, 1, 36),
+    (6, 2, 37);
+
+INSERT INTO Invoice (TotalPrice, Requisites, isPaid, FinalOrderId)
+VALUES
+    (50.535, 12434234, 'false', 1);
