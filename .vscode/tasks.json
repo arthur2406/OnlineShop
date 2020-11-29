@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "npm",
+            "script": "watch:ts",
+            "path": "server/",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "npm: watch:ts - server",
+            "detail": "tsc -w",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}
